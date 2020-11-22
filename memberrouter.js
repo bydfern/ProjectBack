@@ -35,6 +35,12 @@ router.put("/:_id", (req, res) => {
   });
 });
 
+router.delete("/delete-by-email", async (req, res) => {
+  const { email } = req.query
+  const result = await Member.deleteOne({ email })
+  res.send(result)
+});
+
 // DELETE (delete 1 data)
 router.delete("/:_id", (req, res) => {
     Member.findByIdAndDelete(req.params._id, (err, data) => {
@@ -42,5 +48,6 @@ router.delete("/:_id", (req, res) => {
     res.status(200).send("ลบข้อมูลเรียบร้อย");
   });
 });
+
 
 module.exports = router;

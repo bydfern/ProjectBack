@@ -35,6 +35,12 @@ router.put("/:_id", (req, res) => {
   });
 });
 
+router.delete('/delete-user-topic', async (req, res) => {
+  const { email } = req.query
+  const results = await Topic.deleteMany({ email })
+  res.send(results)
+})
+
 // DELETE (delete 1 data)
 router.delete("/:_id", (req, res) => {
     Topic.findByIdAndDelete(req.params._id, (err, data) => {
@@ -42,5 +48,6 @@ router.delete("/:_id", (req, res) => {
     res.status(200).send("ลบข้อมูลเรียบร้อย");
   });
 });
+
 
 module.exports = router;

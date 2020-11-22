@@ -23,6 +23,9 @@ var memberSchema = mongoose.Schema(
     },
     email: {
       type: String
+    },
+    imageUrl: {
+      type: String
     }
   },
   {
