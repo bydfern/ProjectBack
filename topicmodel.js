@@ -14,6 +14,9 @@ var topicSchema = mongoose.Schema(
     },
     email: {
         type: String
+    },
+    fileUrl: {
+      type: String
     }
   },
   {
